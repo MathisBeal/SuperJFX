@@ -1,0 +1,30 @@
+#main_pane_balls {
+    -fx-border-width: 1;
+    -fx-border-color: rgba(0, 0, 0, 0.5);
+    -fx-border-style: solid;
+    -fx-background-color: rgb(221, 221, 221);
+}
+
+
+
+.balle_pierre {
+    -fx-background-color: grey;
+    -fx-fill: url('org/xen/superjfx/images/pierre.png');
+    -fx-stroke: black;
+    -fx-stroke-width: 1;
+    -fx-smooth: true;
+}
+
+.balle_papier {
+    -fx-fill: url('org/xen/superjfx/images/papier.jpg');
+    -fx-stroke: black;
+    -fx-stroke-width: 1;
+    -fx-smooth: true;
+}
+
+.balle_ciseau {
+    -fx-fill: url('org/xen/superjfx/images/ciseau.png');
+    -fx-stroke: black;
+    -fx-stroke-width: 1;
+    -fx-smooth: true;
+}
