@@ -29,7 +29,6 @@ public class D3Controller implements Initializable {
         objet.setLayoutX(450);
         objet.setLayoutY(300);
 
-
         RotateTransition rotateTransition1 = new RotateTransition();
 
         rotateTransition1.setFromAngle(0);
@@ -53,7 +52,6 @@ public class D3Controller implements Initializable {
         );
         sequentialTransition.setCycleCount(Timeline.INDEFINITE);
         sequentialTransition.setAutoReverse(true);
-
 
         sequentialTransition.play();
     }

@@ -19,7 +19,7 @@ public class MainApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource(FXML_Menu));
-        Scene scene = new Scene(fxmlLoader.load());//, 900, 600);
+        Scene scene = new Scene(fxmlLoader.load());
 
         m_Stage = stage;
 
@@ -37,7 +37,6 @@ public class MainApplication extends Application {
         m_Stage.setScene(scene);
         m_Stage.setTitle(WindowName);
     }
-
 
         public static void ChangerScene(String FXML_file, String WindowName, int Width, int Height) throws IOException {
 

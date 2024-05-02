@@ -34,10 +34,12 @@ public class JukeboxController implements Initializable {
     @FXML
     public StackPane disque_global;
 
-    double rotateSpeed = 0;
-    final double maxRotateSpeed = 2;
-    final double speedChangeSpeed = 0.01;
-    double speedDirection = 1;
+    double vitesseRotation = 0;
+//    final double vitesseRotationMax = Double.POSITIVE_INFINITY;
+    final double vitesseRotationMax = 2.5;
+//    final double vitesseChangementVitesse = 2;
+    final double vitesseChangementVitesse = 0.01;
+    double directionVitesse = 1;
 
     boolean musiqueEnCours;
 
@@ -48,20 +50,20 @@ public class JukeboxController implements Initializable {
     AnimationTimer animationTimer = new AnimationTimer() {
         @Override
         public void handle(long now) {
-            ChangeSpeed();
+            ChangerVitesse();
 
-            ((Rotate) disque_global.getTransforms().getFirst()).setAngle((((Rotate) disque_global.getTransforms().getLast()).getAngle() + rotateSpeed)%360);
+            ((Rotate) disque_global.getTransforms().getFirst()).setAngle((((Rotate) disque_global.getTransforms().getLast()).getAngle() + vitesseRotation)%360);
         }
 
     };
 
-    void ChangeSpeed() {
-        rotateSpeed += speedChangeSpeed * speedDirection;
-        if (rotateSpeed > maxRotateSpeed)
-            rotateSpeed = maxRotateSpeed;
+    void ChangerVitesse() {
+        vitesseRotation += vitesseChangementVitesse * directionVitesse;
+        if (vitesseRotation > vitesseRotationMax)
+            vitesseRotation = vitesseRotationMax;
 
-        if (rotateSpeed < 0) {
-            rotateSpeed = 0;
+        if (vitesseRotation < 0) {
+            vitesseRotation = 0;
             animationTimer.stop();
         }
     }
@@ -71,7 +73,7 @@ public class JukeboxController implements Initializable {
     }
 
     public void startJukeboxAnim(ActionEvent event) {
-        speedDirection = 1;
+        directionVitesse = 1;
         animationTimer.start();
     }
 
@@ -80,7 +82,7 @@ public class JukeboxController implements Initializable {
     }
 
     public void stopJukeboxAnim(ActionEvent event) {
-        speedDirection = -1;
+        directionVitesse = -1;
         mediaPlayer.stop();
     }
 
@@ -91,10 +93,6 @@ public class JukeboxController implements Initializable {
 
         musiqueEnCours = true;
     }
-
-
-
-
 
     void ChangerMusique(String Nom) {
 
@@ -114,11 +112,11 @@ public class JukeboxController implements Initializable {
         startJukeboxAnim();
 
         if (musiqueEnCours) {
-            rotateSpeed = 0;
+            vitesseRotation = 0;
             ((Rotate) disque_global.getTransforms().getFirst()).setAngle(0);
         }
 
-        speedDirection = 1;
+        directionVitesse = 1;
         mediaPlayer.play();
         musiqueEnCours = true;
     }
