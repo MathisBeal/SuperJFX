@@ -110,3 +110,7 @@
 .jukebox_boutons {
     -fx-width: 200;
 }
+
+.D_pane {
+    -fx-background-color: silver;
+}

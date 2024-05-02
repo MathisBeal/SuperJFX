@@ -12,7 +12,7 @@ public class MainApplication extends Application {
     public static final String FXML_Menu = "Menu.fxml";
     public static final String FXML_Balles = "Balles.fxml";
     public static final String FXML_Animations = "Jukebox.fxml";
-    public static final String FXML_3D = "Menu.fxml";
+    public static final String FXML_3D = "3D.fxml";
 
     static Stage m_Stage;
 
@@ -46,26 +46,6 @@ public class MainApplication extends Application {
 
         ChangerScene(FXML_file, WindowName);
     }
-
-//    AnimationTimer animationTimer;
-//
-//
-//    @Override
-//    public void initialize(URL url, ResourceBundle resourceBundle) {
-//        animationTimer = new AnimationTimer() {
-//            @Override
-//            public void handle(long now) {
-//                btnTest.getTransforms().add(new Rotate(1));
-//
-//
-//                if (btnTest.getTransforms().stream().count()>=360){
-//                    animationTimer.stop();
-//                }
-//            }
-//        };
-//
-//        animationTimer.start();
-//    }
 
     public static void main(String[] args) {
         launch();

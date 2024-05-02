@@ -216,6 +216,8 @@ public class JukeboxController implements Initializable {
 
     public void actionMenu(ActionEvent event) throws IOException {
         Stop(null);
+        if (mediaPlayer!=null)
+            mediaPlayer.dispose();
         switch (((Button) event.getSource()).getText().toLowerCase()) {
             case "menu principal":
                 MainApplication.ChangerScene(MainApplication.FXML_Menu, "SuperJFX");
