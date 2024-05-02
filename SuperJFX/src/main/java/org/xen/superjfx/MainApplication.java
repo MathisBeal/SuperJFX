@@ -1,21 +1,17 @@
 package org.xen.superjfx;
 
-import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.transform.Rotate;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 
 public class MainApplication extends Application {
 
     public static final String FXML_Menu = "Menu.fxml";
     public static final String FXML_Balles = "Balles.fxml";
-    public static final String FXML_Animations = "Menu.fxml";
+    public static final String FXML_Animations = "Jukebox.fxml";
     public static final String FXML_3D = "Menu.fxml";
 
     static Stage m_Stage;
@@ -34,7 +30,7 @@ public class MainApplication extends Application {
         stage.show();
     }
 
-    public static void ChangerStage(String FXML_file, String WindowName) throws IOException {
+    public static void ChangerScene(String FXML_file, String WindowName) throws IOException {
 
         Scene scene = new Scene(new FXMLLoader(MainApplication.class.getResource(FXML_file)).load());
 
@@ -43,12 +39,12 @@ public class MainApplication extends Application {
     }
 
 
-        public static void ChangerStage(String FXML_file, String WindowName, int Width, int Height) throws IOException {
+        public static void ChangerScene(String FXML_file, String WindowName, int Width, int Height) throws IOException {
 
         m_Stage.setWidth(Width);
         m_Stage.setHeight(Height);
 
-        ChangerStage(FXML_file, WindowName);
+        ChangerScene(FXML_file, WindowName);
     }
 
 //    AnimationTimer animationTimer;

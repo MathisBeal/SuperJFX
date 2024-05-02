@@ -12,19 +12,19 @@ public class MenuController {
     @FXML
     void Animations(ActionEvent event) throws IOException {
 //        System.out.println("Go to Animations");
-        MainApplication.ChangerStage(MainApplication.FXML_Animations, "Animations");
+        MainApplication.ChangerScene(MainApplication.FXML_Animations, "Animations");
     }
 
     @FXML
     void BallesRebondissantes(ActionEvent event) throws IOException {
 //        System.out.println("Go to BallesRebondissantes");
-        MainApplication.ChangerStage(MainApplication.FXML_Balles, "Balles rebondissantes");
+        MainApplication.ChangerScene(MainApplication.FXML_Balles, "Balles rebondissantes");
     }
 
     @FXML
     void D3(ActionEvent event) throws IOException {
 //        System.out.println("Go to D3");
-        MainApplication.ChangerStage(MainApplication.FXML_3D, "Animation 3D");
+        MainApplication.ChangerScene(MainApplication.FXML_3D, "Animation 3D");
     }
 
     @FXML

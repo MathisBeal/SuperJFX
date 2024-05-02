@@ -6,18 +6,33 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.xen.superjfx.BallesController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.xen.superjfx.BallesController">
    <children>
-      <Pane id="main_pane_balls" fx:id="MainPane" maxWidth="1.7976931348623157E308" prefHeight="500.0" prefWidth="880.0" stylesheets="@style.css">
+      <Pane id="main_pane_balls" fx:id="MainPane" maxWidth="1.7976931348623157E308" onMousePressed="#PausePane" onMouseReleased="#JouerPane" prefHeight="500.0" prefWidth="880.0" stylesheets="@style.css">
          <VBox.margin>
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
          </VBox.margin>
       </Pane>
-      <HBox prefHeight="100.0" prefWidth="200.0">
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#ajouterBalle" text="Ajouter une balle" />
-            <Button mnemonicParsing="false" onAction="#Jouer" text="Jouer" />
-            <Button mnemonicParsing="false" onAction="#Pause" text="Pause" />
+            <Button mnemonicParsing="false" onAction="#ajouterBalle" prefHeight="40.0" prefWidth="150.0" styleClass="balles_boutons" text="Ajouter une balle">
+               <HBox.margin>
+                  <Insets left="10.0" right="10.0" />
+               </HBox.margin></Button>
+            <Button mnemonicParsing="false" onAction="#ajouter3Balles" prefHeight="40.0" prefWidth="150.0" styleClass="balles_boutons" text="Ajouter 3 balles">
+               <HBox.margin>
+                  <Insets left="10.0" right="10.0" />
+               </HBox.margin></Button>
+<!--            <Button styleClass="balles_boutons" mnemonicParsing="false" onAction="#Jouer" text="Jouer" />-->
+<!--            <Button styleClass="balles_boutons" mnemonicParsing="false" onAction="#Pause" text="Pause" />-->
+            <Button mnemonicParsing="false" onAction="#retirerDerniereBalle" prefHeight="40.0" prefWidth="150.0" styleClass="balles_boutons" text="Retirer dernière balle">
+               <HBox.margin>
+                  <Insets left="10.0" right="10.0" />
+               </HBox.margin></Button>
+            <Button mnemonicParsing="false" onAction="#retirerToutesLesBalles" prefHeight="40.0" prefWidth="150.0" styleClass="balles_boutons" text="Retirer toutes les balles">
+               <HBox.margin>
+                  <Insets left="10.0" right="10.0" />
+               </HBox.margin></Button>
          </children></HBox>
    </children>
 </VBox>

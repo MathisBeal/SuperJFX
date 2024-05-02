@@ -14,7 +14,7 @@
             <Insets top="10.0" />
          </VBox.margin>
       </Button>
-      <Button mnemonicParsing="false" onAction="#Animations" prefHeight="35.0" prefWidth="150.0" styleClass="main_menu_buttons" stylesheets="@style.css" text="JSP encore">
+      <Button mnemonicParsing="false" onAction="#Animations" prefHeight="35.0" prefWidth="150.0" styleClass="main_menu_buttons" stylesheets="@style.css" text="Jukebox">
          <VBox.margin>
             <Insets top="10.0" />
          </VBox.margin>

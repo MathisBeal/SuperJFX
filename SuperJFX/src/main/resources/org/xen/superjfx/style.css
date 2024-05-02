@@ -28,3 +28,85 @@
     -fx-stroke-width: 1;
     -fx-smooth: true;
 }
+
+.balles_boutons {
+    -fx-background-color: linear-gradient(to top, rgb(161, 161, 161), rgb(219, 219, 219));
+}
+
+.balles_boutons:hover {
+    -fx-background-color: linear-gradient(to top, rgb(104, 103, 103), rgb(153, 153, 153));
+}
+
+.disque_vinyl {
+    -fx-fill: url('org/xen/superjfx/images/vinyl.png');
+    -fx-stroke-width: 0;
+    -fx-smooth: true;
+}
+
+.disque_CR {
+    -fx-fill: url('org/xen/superjfx/images/cr.jpg');
+    -fx-stroke: black;
+    -fx-stroke-width: 1;
+    -fx-smooth: true;
+}
+
+.disque_SSBU {
+    -fx-fill: url('org/xen/superjfx/images/ssbu.jpg');
+    -fx-stroke: black;
+    -fx-stroke-width: 1;
+    -fx-smooth: true;
+}
+
+.disque_FFVII {
+    -fx-fill: url('org/xen/superjfx/images/ffvii.jpg');
+    -fx-stroke: black;
+    -fx-stroke-width: 1;
+    -fx-smooth: true;
+}
+
+.disque_MK {
+    -fx-fill: url('org/xen/superjfx/images/mk.png');
+    -fx-stroke: black;
+    -fx-stroke-width: 1;
+    -fx-smooth: true;
+}
+
+.disque_BOTW {
+    -fx-fill: url('org/xen/superjfx/images/botw.jpg');
+    -fx-stroke: black;
+    -fx-stroke-width: 1;
+    -fx-smooth: true;
+}
+
+.disque_MII {
+    -fx-fill: url('org/xen/superjfx/images/mii.png');
+    -fx-stroke: black;
+    -fx-stroke-width: 1;
+    -fx-smooth: true;
+}
+
+.disque_TLOU {
+    -fx-fill: url('org/xen/superjfx/images/tlou.jpg');
+    -fx-stroke: black;
+    -fx-stroke-width: 1;
+    -fx-smooth: true;
+}
+
+.disque_Mario {
+    -fx-fill: url('org/xen/superjfx/images/mario.jpg');
+    -fx-stroke: black;
+    -fx-stroke-width: 1;
+    -fx-smooth: true;
+}
+
+.vinyl_centre {
+    -fx-fill: url('org/xen/superjfx/images/vinyl_centre.png');
+    -fx-stroke: black;
+    -fx-stroke-type: inside;
+    -fx-stroke-width: 1;
+    -fx-smooth: true;
+}
+
+.jukebox_boutons {
+    -fx-width: 200;
+}
