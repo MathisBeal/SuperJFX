@@ -7,6 +7,11 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+/**
+ @author Mathis Béal
+ @Date: 12/05/2024
+ @Info: Application avec 3 activités et 1 menu principal
+ */
 public class MainApplication extends Application {
 
     public static final String FXML_Menu = "Menu.fxml";
@@ -30,20 +35,18 @@ public class MainApplication extends Application {
         stage.show();
     }
 
+    /**
+     * Change la scène actuelle
+     * @param FXML_file Nom du fichier FXML
+     * @param WindowName Nom à donner à la fenêtre
+     * @throws IOException
+     */
     public static void ChangerScene(String FXML_file, String WindowName) throws IOException {
 
         Scene scene = new Scene(new FXMLLoader(MainApplication.class.getResource(FXML_file)).load());
 
         m_Stage.setScene(scene);
         m_Stage.setTitle(WindowName);
-    }
-
-        public static void ChangerScene(String FXML_file, String WindowName, int Width, int Height) throws IOException {
-
-        m_Stage.setWidth(Width);
-        m_Stage.setHeight(Height);
-
-        ChangerScene(FXML_file, WindowName);
     }
 
     public static void main(String[] args) {

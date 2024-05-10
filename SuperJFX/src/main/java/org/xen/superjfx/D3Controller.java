@@ -14,11 +14,21 @@ import javafx.util.Duration;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ @author Mathis Béal
+ @Date: 12/05/2024
+ @Info: Activité de l'animation 3D
+ */
 public class D3Controller implements Initializable {
 
     public AnchorPane pane;
     Node objet;
 
+    /**
+     * Crée les animations de rotation et les appliques au cylindre
+     * @param url
+     * @param resourceBundle
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 

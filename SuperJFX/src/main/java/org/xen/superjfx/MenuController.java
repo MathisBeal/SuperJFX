@@ -7,6 +7,11 @@ import java.io.IOException;
 
 import static javafx.application.Platform.exit;
 
+/**
+ @author Mathis Béal
+ @Date: 12/05/2024
+ @Info: Activité du menu principal
+ */
 public class MenuController {
 
     @FXML

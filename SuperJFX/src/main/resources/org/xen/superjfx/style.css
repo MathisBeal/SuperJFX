@@ -5,8 +5,6 @@
     -fx-background-color: rgb(221, 221, 221);
 }
 
-
-
 .balle_pierre {
     -fx-background-color: grey;
     -fx-fill: url('org/xen/superjfx/images/pierre.png');

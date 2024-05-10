@@ -17,6 +17,11 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 
+/**
+ @author Mathis Béal
+ @Date: 12/05/2024
+ @Info: Activité du Jukebox
+ */
 public class JukeboxController implements Initializable {
 
     final static String SUPER_SMASH_BROS = "musics/SSBU Main Theme.mp3";
@@ -35,9 +40,7 @@ public class JukeboxController implements Initializable {
     public StackPane disque_global;
 
     double vitesseRotation = 0;
-//    final double vitesseRotationMax = Double.POSITIVE_INFINITY;
     final double vitesseRotationMax = 2.5;
-//    final double vitesseChangementVitesse = 2;
     final double vitesseChangementVitesse = 0.01;
     double directionVitesse = 1;
 
@@ -47,7 +50,18 @@ public class JukeboxController implements Initializable {
 
     MediaPlayer mediaPlayer;
 
+    /**
+     * Fonctionne comme le onUpdate() de Unity
+     */
     AnimationTimer animationTimer = new AnimationTimer() {
+
+        /**
+         * Donne un effet de vitesse de rotation au disque, en ajoutant de la valeur à l'angle de rotation
+         * @param now
+         *            The timestamp of the current frame given in nanoseconds. This
+         *            value will be the same for all {@code AnimationTimers} called
+         *            during one frame.
+         */
         @Override
         public void handle(long now) {
             ChangerVitesse();
@@ -57,6 +71,10 @@ public class JukeboxController implements Initializable {
 
     };
 
+    /**
+     * Fait augmenter la vitesse de rotation jusqu'à la vitesse maximale, si la direction est positive,
+     * Ou fait ralentir la vitesse jusqu'à 0, puis stop le animationTimer
+     */
     void ChangerVitesse() {
         vitesseRotation += vitesseChangementVitesse * directionVitesse;
         if (vitesseRotation > vitesseRotationMax)
@@ -68,48 +86,77 @@ public class JukeboxController implements Initializable {
         }
     }
 
-    public void startJukeboxAnim() {
-        startJukeboxAnim(null);
+    /**
+     * Permet de démarrer l'animation de tourne-disque depuis du code
+     */
+    public void DemarrerJukeboxAnim() {
+        DemarrerJukeboxAnim(null);
     }
 
-    public void startJukeboxAnim(ActionEvent event) {
+    /**
+     * Permet de démarrer l'animation de tourne-disque depuis le FXML
+     * @param event Source
+     */
+    public void DemarrerJukeboxAnim(ActionEvent event) {
         directionVitesse = 1;
         animationTimer.start();
     }
 
-    public void stopJukeboxAnim() {
-        stopJukeboxAnim(null);
+    /**
+     * Permet de demander l'arrêt de l'animation de tourne-disque depuis du code
+     */
+    public void StopJukeboxAnim() {
+        StopJukeboxAnim(null);
     }
 
-    public void stopJukeboxAnim(ActionEvent event) {
+    /**
+     * Permet de demander l'arrêt de l'animation de tourne-disque depuis le FXML
+     * @param event Source
+     */
+    public void StopJukeboxAnim(ActionEvent event) {
         directionVitesse = -1;
         mediaPlayer.stop();
     }
 
+    /**
+     * Initialise une rotation avec un certain point de pivot, pour faire l'effet de tourne-disque
+     * @param url
+     * @param resourceBundle
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
         disque_global.getTransforms().add(new Rotate(0, 330/2, 300/2));
 
+        // Pour ne pas génerer d'erreur au tout début
         musiqueEnCours = true;
     }
 
+    /**
+     * Change la musique à jouer
+     * @param Nom Nom de la musique à jouer
+     */
     void ChangerMusique(String Nom) {
 
+        // Libère les ressources utilisées par le média
         if (mediaPlayer != null)
             mediaPlayer.dispose();
 
+        // Change la ressource media
         mediaPlayer = new MediaPlayer(new Media(getClass().getResource(Nom).toString()));
 
+        // Ajoute du code déclenché à la fin de la musique
         mediaPlayer.setOnEndOfMedia(() -> {
-            stopJukeboxAnim();
-            mediaPlayer.dispose();
+            StopJukeboxAnim();
             musiqueEnCours = false;
         });
     }
 
+    /**
+     * Lance la musique ainsi que l'animation de tourne-disque
+     */
     void LancerMusique() {
-        startJukeboxAnim();
+        DemarrerJukeboxAnim();
 
         if (musiqueEnCours) {
             vitesseRotation = 0;
@@ -177,6 +224,10 @@ public class JukeboxController implements Initializable {
         LancerMusique();
     }
 
+    /**
+     * Relance la musique à partir de l'endroit où elle avait été arrêtée<br/>Au début si elle s'était terminée
+     * @param event
+     */
     public void Lecture(ActionEvent event) {
 
         if (musiqueEnCours)
@@ -185,10 +236,14 @@ public class JukeboxController implements Initializable {
         mediaPlayer.setStartTime(tempsAvantPause);
         mediaPlayer.play();
 
-        startJukeboxAnim();
+        DemarrerJukeboxAnim();
         musiqueEnCours = true;
     }
 
+    /**
+     * Met la musique en pause et enregistre l'endroit où elle a été arrêtée
+     * @param event
+     */
     public void Pause(ActionEvent event) {
 
         if (!musiqueEnCours || mediaPlayer==null)
@@ -197,21 +252,34 @@ public class JukeboxController implements Initializable {
         tempsAvantPause = mediaPlayer.getCurrentTime();
 
         mediaPlayer.pause();
-        stopJukeboxAnim();
+        StopJukeboxAnim();
         musiqueEnCours = false;
     }
 
+    /**
+     * Arrête la musique en cours, et remet au début l'endroit elle repartira en cas d'appui sur "Lecture"
+     * @param event
+     */
     public void Stop(ActionEvent event) {
 
         if (mediaPlayer==null)
             return;
 
         mediaPlayer.stop();
-        stopJukeboxAnim();
+        StopJukeboxAnim();
         musiqueEnCours = false;
         tempsAvantPause = new Duration(0);
     }
 
+    /**
+     * Gère les actions menu :
+     * <li>Menu principal</li>
+     * <li>Balles</li>
+     * <li>3D</li>
+     * et emmène au scène correspondantes
+     * @param event Source ayant appelé la fonction
+     * @throws IOException
+     */
     public void actionMenu(ActionEvent event) throws IOException {
         Stop(null);
         if (mediaPlayer!=null)
